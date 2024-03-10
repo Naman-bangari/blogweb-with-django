@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+
+<div class="container py-2"><h2>Write your code here</h2></div>
+<div class="container-fluid  px-4 d-flex">
+  <div class="flex-grow-1">
+    <form id="htmlForm" method="get">
+      <textarea id="code" name="code" rows="21" cols="60">{{ code1 }}</textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <div class="flex-grow-1">
+    <iframe src="{% url 'about' %}" width="120%" height="100%" frameborder="0" style="border: 5px solid #ccc;"></iframe>
+  </div>
+</div>
+
+<script>
+  //console.log("Variable content:", "{{ code1 }}");
+</script>
+  
+{% endblock body %}
