@@ -96,9 +96,11 @@
   <h2>Write Your Code Here</h2>
 
   <div class="form-container">
-    <form id="htmlForm" method="get">
+    <form id="htmlForm" method="post">
+      {% csrf_token %}  
       <textarea id="code" name="code" placeholder="Enter HTML code here..." rows="20" cols="60">{{ code1 }}</textarea>
       <button type="submit">Submit</button>
+      <button type="submit" onclick="fun()">Clear</button>
     </form>
   </div>
 
@@ -107,6 +109,10 @@
   </div>
 </div>
 <script>
+  function fun()
+  {
+    document.getElementById("code").value=""
+  }
   const resizeHandle = document.querySelector('.resize-handle');
   const formContainer = document.querySelector('.form-container');
   const textarea = document.getElementById('code');
