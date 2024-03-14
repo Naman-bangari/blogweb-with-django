@@ -2,6 +2,7 @@ from django.shortcuts import render ,HttpResponse,redirect
 
 # Create your views here.
 def index(request):
+    items = request.session.get('items', []) 
     code1 = request.session.get('code1', None)  # Retrieve code1 from session or None if not found
 
     if request.method == 'POST':
@@ -9,18 +10,25 @@ def index(request):
         if new_code1 is not None:  # Check if new_code1 is not None
             request.session['code1'] = new_code1  # Store new_code1 in session
             code1 = new_code1
-
-    return render(request, 'index.html', {'code1': code1})
+    return render(request, 'index.html', {'code1': code1,'items':items})
 
 def about(request):
     code1 = request.session.get('code1')  # Retrieve code1 from session
     return render(request, 'about.html', {'code1': code1})
   
 def services(request):
-     return render(request,'services.html')
+    return render(request,'services.html')
  
 def contact(request):
-     return render(request,'contact.html')
+    return render(request,'contact.html')
 def home1(request):
-     return render(request,'home1.html')
+    if request.method == 'POST':
+        items = []  # Initialize an empty list
+        selected_items = [value for name, value in request.POST.items() if name.startswith('item')]
+        items.extend(selected_items)
+        request.session['items'] = items
+        return redirect('index')  # Assuming 'index' is the name of the URL pattern for the index view
+
+    return render(request, 'home1.html')
+
   

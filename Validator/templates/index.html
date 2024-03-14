@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% block title %}Home{% endblock title %}
 {% block body %}
 
 <style>
@@ -50,7 +49,7 @@
     background-color: #007bff;
     cursor: nwse-resize; /* Cursor style for resizing */
   }
-  button[type="submit"] {
+  .btn1 {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -61,7 +60,7 @@
     transition: background-color 0.3s;
   }
 
-  button[type="submit"]:hover {
+  .btn1:hover {
     background-color: #0056b3;
   }
 
@@ -99,8 +98,8 @@
     <form id="htmlForm" method="post">
       {% csrf_token %}  
       <textarea id="code" name="code" placeholder="Enter HTML code here..." rows="20" cols="60">{{ code1 }}</textarea>
-      <button type="submit">Submit</button>
-      <button type="submit" onclick="fun()">Clear</button>
+      <button class="btn1" type="submit">Submit</button>
+      <button class="btn1" type="submit" onclick="fun()">Clear</button>
     </form>
   </div>
 
@@ -108,51 +107,25 @@
     <iframe src="{% url 'about' %}" frameborder="0"></iframe>
   </div>
 </div>
+<div class="container py-0 my-0">
+  <h2>Criteria need to fulfill:</h2>
+  <form id="criteriaForm" method="post">
+      {% csrf_token %}
+      <ul>
+          {% for item in items %}
+              <li>
+                  <input type="checkbox" name="criteria" value="{{ item }}" disabled>
+                  {{ item }}
+              </li>
+          {% endfor %}
+      </ul>
+  </form>
+</div>
 <script>
   function fun()
   {
     document.getElementById("code").value=""
   }
-  const resizeHandle = document.querySelector('.resize-handle');
-  const formContainer = document.querySelector('.form-container');
   const textarea = document.getElementById('code');
-
-  let isResizing = false;
-  let prevX = 0;
-  let prevY = 0;
-
-  resizeHandle.addEventListener('mousedown', (event) => {
-    isResizing = true;
-    prevX = event.clientX;
-    prevY = event.clientY;
-
-    document.addEventListener('mousemove', resizeTextarea);
-    document.addEventListener('mouseup', stopResizing);
-  });
-
-  function resizeTextarea(event) {
-    if (isResizing) {
-      const containerWidth = formContainer.offsetWidth;
-      const containerHeight = formContainer.offsetHeight;
-      const deltaX = event.clientX - prevX;
-      const deltaY = event.clientY - prevY;
-      const newWidth = containerWidth + deltaX;
-      const newHeight = containerHeight + deltaY;
-      
-      formContainer.style.width = `${newWidth}px`;
-      formContainer.style.height = `${newHeight}px`;
-      textarea.style.width = `${newWidth - 40}px`; 
-      textarea.style.height = `${newHeight - 40}px`; 
-  
-      prevX = event.clientX;
-      prevY = event.clientY;
-    }
-  }
-  function stopResizing() {
-    isResizing = false;
-
-    document.removeEventListener('mousemove', resizeTextarea);
-    document.removeEventListener('mouseup', stopResizing);
-  }
 </script>
 {% endblock body %}
