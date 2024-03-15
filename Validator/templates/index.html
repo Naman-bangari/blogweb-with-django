@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block body %}
-
 <style>
   body {
     font-family: Cursive, sans-serif;
@@ -40,15 +39,7 @@
     margin-bottom: 10px;
     resize: vertical; /* Added vertical resize for textarea */
   }
-  .resize-handle {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    background-color: #007bff;
-    cursor: nwse-resize; /* Cursor style for resizing */
-  }
+
   .btn1 {
     background-color: #007bff;
     color: #fff;
@@ -89,26 +80,47 @@
       float: none;
     }
   }
+  input[type="checkbox"] {
+    
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    
+    font-size: 17px;
+  }
 </style>
 
 <div class="container">
   <h2>Write Your Code Here</h2>
 
   <div class="form-container">
-    <form id="htmlForm" method="post">
+    <form id="htmlForm" method="post" onsubmit="checkCriteria()">
       {% csrf_token %}  
       <textarea id="code" name="code" placeholder="Enter HTML code here..." rows="20" cols="60">{{ code1 }}</textarea>
       <button class="btn1" type="submit">Submit</button>
-      <button class="btn1" type="submit" onclick="fun()">Clear</button>
+      <button class="btn1" type="submit" onclick="clearTextarea()">Clear</button> 
+
+      <button class="btn1" type="button" onclick="autocode()">AutoCode</button>
+      <button class="btn1" type="button" onclick="direct()">Full_preview</button>
+  
     </form>
   </div>
 
   <div class="iframe-container">
-    <iframe src="{% url 'about' %}" frameborder="0"></iframe>
+    <iframe src="{% url 'full_review' %}" frameborder="0"></iframe>
   </div>
 </div>
+
 <div class="container py-0 my-0">
-  <h2>Criteria need to fulfill:</h2>
+  <h1 id="criteriaHeader">Criteria need to fulfill:</h1>
+  <h5 id="mustsection">Your project must have following section</h5>
   <form id="criteriaForm" method="post">
       {% csrf_token %}
       <ul>
@@ -121,11 +133,81 @@
       </ul>
   </form>
 </div>
+
 <script>
-  function fun()
-  {
-    document.getElementById("code").value=""
+  document.addEventListener('DOMContentLoaded', function() {
+    checkCriteria();
+  });
+  const itemMap = new Map([
+    ['sectionwithclassnamenavbar','<sectionclass="navbar">'],
+    ['divwithclassnamejumbotron', 'div class="jumbotron"'],
+    ['aboutsection', '<sectionclass="aboutus">'],
+    ['subscriptionsection','<sectionclass="subscribeus"'],['contactsection', '<section class="contact us">'],['footer', '<footer'],
+  ]);
+
+  function clearTextarea() {
+    document.getElementById("code").value = "";
   }
-  const textarea = document.getElementById('code');
+
+  function direct() {
+    window.open('/full_review', '_blank');
+  }
+
+  function autocode() {
+    fetch('/auto_code')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("code").value = data;
+      })
+      .catch(error => {
+        console.error('Error fetching auto code:', error);
+      });
+  }
+
+  function checkCriteria() {
+    const textarea = document.getElementById('code');
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const criteriaHeader = document.getElementById('criteriaHeader');
+    let allChecked = true;
+
+    const text = textarea.value.toLowerCase().replace(/\s/g, '');
+    console.log(text);
+    checkboxes.forEach(function(checkbox) {
+      const item = checkbox.value.toLowerCase().replace(/\s/g, '');
+      console.log(item);
+      const item_value = itemMap.get(item);
+      if (item_value !== undefined) {
+        const cleaned_item_value = item_value.replace(/\s/g, '');
+        console.log("Item Value:", cleaned_item_value);
+    
+        if (text.includes(cleaned_item_value)) {
+          checkbox.checked = true;
+          console.log("Checkbox checked for item:", item);
+        } else {
+          checkbox.checked = false;
+          allChecked = false;
+          console.log("Checkbox unchecked for item:", item);
+        }
+      } else {
+        console.log("No value found for item:", item);
+        checkbox.checked = false;
+        allChecked = false; 
+      }
+    });
+
+    if (allChecked) {
+      criteriaHeader.textContent = 'Criteria fulfilled';
+      criteriaHeader.style.color = 'green';
+      document.getElementById('mustsection').style.display = 'none';
+    } else {
+      criteriaHeader.textContent = 'Criteria need to fulfill:';
+      criteriaHeader.style.color = 'black';
+      document.getElementById('mustsection').style.display = 'block';
+    }
+  }
+
+  document.getElementById('htmlForm').addEventListener('submit', function(event) {
+    checkCriteria();
+  });
 </script>
 {% endblock body %}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressive Blog</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom Styles */
+        /* Add your custom CSS styles here */
+    </style>
+</head>
+<body>
+
+
+    <!-- Navigation Bar -->
+    <section class="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Impressive Blog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home-section">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-section">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-section">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </section>
+
+
+    <!-- Main Content Area -->
+    <div id="home-section" class="container mt-5">
+        <!-- Featured Post -->
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to Our Blog!</h1>
+            <p class="lead">Stay updated with the latest articles and news.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Read More</a>
+        </div>
+
+
+
+        <!-- Blog Posts -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <img src="https://via.placeholder.com/800x400" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Post Title 1</h5>
+                        <p class="card-text">This is a sample blog post content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <img src="https://via.placeholder.com/800x400" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Post Title 2</h5>
+                        <p class="card-text">This is another sample blog post content. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- Sidebar -->
+
+
+                <section class="about us">
+                <div id="about-section"class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">About Us</h5>
+                        <p class="card-text">We are passionate about sharing valuable insights and information through our blog.</p>
+                    </div>
+                </div>
+                </section>
+
+
+                <section class="Subscribe us">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Subscribe</h5>
+                        <p class="card-text">Stay updated with our latest posts. Subscribe to our newsletter.</p>
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                </section>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <section class="contact us">
+    <div id="contact-section" class="container ">
+        <div class="container ">
+            <form >
+            <h1 class="text-center">Contact us</h1>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email"  name="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter email">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Phone number</label>
+                <input type="phone" name="phone" class="form-control" id="exampleFormControlInput1" placeholder="Enter phone number">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Reason for contact...</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1"  name="reason" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            &copy; 2024 Impressive Blog. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Impressive Blog</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: Cursive, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            
+          }
+        /* Custom Styles */
+        /* Add your custom CSS styles here */
+        body {
+            background-color: #f8f9fa;
+        }
+        .about-section {
+            background-color: #fff;
+            padding: 50px 0;
+        }
+        .about-heading {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .about-content {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<!-- About Section -->
+<section class="about-section">
+    <div class="container">
+        <h1 class="about-heading">About</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="./static/1.jpg" class="img-fluid" alt="About Us Image"style="height:300px;width:400px;">
+            </div>
+            <div class="col-md-6">
+                <div class="about-content">
+                    <p>The blogosphere is teeming with innumerable voices competing for attention in the digital age. So, how can you make sure that your blog is seen among the crowd? Create your own blog here using the requirements and user comments from the website.<p>
+                    <p>This website assists users in creating their own blogs that adhere to all chosen parameters.<p>
+                    <p>makes use of Django, HTML, CSS, and Bootstrap to create a well-designed, completely responsive website.<p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about-section">
+    <div class="container">
+        <h1 class="about-heading">Help</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about-content">
+                    
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="./static/2.jpg" class="img-fluid" alt="About Us Image">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+        &copy; 2024 Validator. All Rights Reserved.
+    </div>
+</footer>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{% endblock body %}

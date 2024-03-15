@@ -12,13 +12,17 @@ def index(request):
             code1 = new_code1
     return render(request, 'index.html', {'code1': code1,'items':items})
 
-def about(request):
+def full_review(request):
     code1 = request.session.get('code1')  # Retrieve code1 from session
-    return render(request, 'about.html', {'code1': code1})
+    return render(request, 'full_review.html', {'code1': code1})
   
 def services(request):
     return render(request,'services.html')
- 
+def auto_code(request):
+    return render(request,'auto_code.html')
+
+def about_us(request):
+    return render(request,'about_us.html') 
 def contact(request):
     return render(request,'contact.html')
 def home1(request):
