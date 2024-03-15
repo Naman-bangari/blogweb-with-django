@@ -108,7 +108,7 @@
     <form id="htmlForm" method="post" onsubmit="checkCriteria()">
       {% csrf_token %}  
       <textarea id="code" name="code" placeholder="Enter HTML code here..." rows="20" cols="60">{{ code1 }}</textarea>
-      <button class="btn1" type="submit">Submit</button>
+      <button class="btn1" type="submit">Run the Tests</button>
       <button class="btn1" type="submit" onclick="clearTextarea()">Clear</button> 
 
       <button class="btn1" type="button" onclick="autocode()">AutoCode</button>
@@ -137,7 +137,9 @@
       </ul>
   </form>
 </div>
-
+<div class="container">
+  <button class="btn1" type="button" onclick="direct2()">Set criteria</button>
+</div>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     checkCriteria();
@@ -156,6 +158,9 @@
   function direct() {
     window.open('/full_review', '_blank');
   }
+  function direct2() {
+    window.open('/', '_self');
+}
 
   function autocode() {
     fetch('/auto_code')
