@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+{% load static %}
 {% block body %}
+<head>
 <style>
   body {
     font-family: Cursive, sans-serif;
@@ -96,7 +98,9 @@
     font-size: 17px;
   }
 </style>
+<link rel="icon" type="image/jpg" href="{% static '4.jpg' %}">
 
+</head>
 <div class="container">
   <h2>Write Your Code Here</h2>
 
@@ -139,7 +143,7 @@
     checkCriteria();
   });
   const itemMap = new Map([
-    ['sectionwithclassnamenavbar','<sectionclass="navbar">'],
+    ['sectionwithclassnamenavbar','class="navbar'],
     ['divwithclassnamejumbotron', 'div class="jumbotron"'],
     ['aboutsection', '<sectionclass="aboutus">'],
     ['subscriptionsection','<sectionclass="subscribeus"'],['contactsection', '<section class="contact us">'],['footer', '<footer'],

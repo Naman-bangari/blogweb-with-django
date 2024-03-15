@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% block title %}contact{% endblock title %}
 {% block body %}
+
 <div class="container-fluid px-0 mb-3">
-    <img src="https://source.unsplash.com/1200x400/?telephone" class="d-block w-100 mx-0" alt="contact">
+    <img src="./static/3.jpg" class="d-block w-100 mx-0" alt="contact">
 </div>
 <div class="container ">
     <form method="post" action="/contact">
@@ -27,6 +28,14 @@
       <button type="submit" class="btn btn-primary">Submit</button>
       
     </form>
+    <div class="container-fluid py-3 px-0 mx-0 my-0">
+    <footer class="bg-dark text-white text-center py-3">
+      <div class="container">
+          &copy; 2024 Validator. All Rights Reserved.
+  </footer>
+</div>
+</div>
+  
 </div>
 
 {% endblock body %}
