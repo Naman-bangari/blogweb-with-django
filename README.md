@@ -6,16 +6,6 @@ Unlike given example of Portfolio i intergrate a FULLY RESPONSIVE website which 
 In today's digital age, where virtually everything is migrating online, establishing a personal blog on your own webpage can be a strategic move. Not only does it provide a platform for showcasing your expertise, interests, and creativity, but it also offers complete control over your content and presentation. By curating your blog with engaging visuals, interactive elements, and compelling narratives, you can captivate your audience and leave a lasting impression. Embrace the opportunity to craft a digital space that reflects your unique voice and vision, enhancing your online presence and leaving visitors eager to return for more.
 
 How to run validator ->
-2 WAYS ->
-
-Easy way ->
-
-1> This project is host online you can go to given link to see proect.
-
-link  ->  https://bangarinaman.pythonanywhere.com/ 
-
-
-Medium way ->
 
 1> You can download the zip folder (Validator-django)
 
